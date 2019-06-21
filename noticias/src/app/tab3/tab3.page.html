@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Favoritas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid align-items-center>
+    <ion-row>
+      <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12" *ngFor="let article of favorites; let i=index">       
+        <ion-card>
+          <ion-card-header>
+              <ion-card-subtitle>{{article.author}}</ion-card-subtitle>
+            <ion-card-title (click)="goUrl(article.url)" style="cursor: pointer">{{article.title}}</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content padding text-center>
+              <ion-img src="{{article.urlToImage}}"></ion-img>
+              {{article.description}}               
+          </ion-card-content>      
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">         
+              <ion-fab-button (click)="share(article)">
+                <ion-icon name="share"></ion-icon>
+              </ion-fab-button>                
+            </ion-fab>        
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
